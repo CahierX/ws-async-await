@@ -1,9 +1,6 @@
 # ws-async-await
 ws sends data and receives data into async await similar to http api interface
 # how to use
-```
- npm install ws-async-await
- ```
 ```typescript
  const ws = new Ws('ws://127.0.0.1:52234');
   await ws.initWebSocket();
