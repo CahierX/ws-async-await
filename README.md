@@ -5,11 +5,11 @@ ws sends data and receives data into async await similar to http api interface
  npm install ws-async-await
  ```
 ```typescript
-  const ws = new Ws('ws://127.0.0.1:52234');
+ const ws = new Ws('ws://127.0.0.1:52234');
   await ws.initWebSocket();
   const macWsStatus = await ws.webSocketOnopen();
   if (macWsStatus) {
-    const data = await ws.sendWsData('getTicket', { client: 'mac' });
+    const data = await ws.sendWsData({ eventName: 'getTicket', params: { client: 'mac' } }, 'eventName');
     console.log(data);
   }
 ```
@@ -20,7 +20,6 @@ ws sends data and receives data into async await similar to http api interface
   await ws open return boolean status 
 ## sendWsData(eventName,params)
   sendWsData is a promise function, await will return ws onmessage data, provided the eventName is the same as the sent eventName
-  eventName: send ws eventName，
-  params: send ws params
-  reutrn ws receives the data returned by the data 
+  data: send ws data，
+  key: ws return data key = we set key ,it ws return this data
 
