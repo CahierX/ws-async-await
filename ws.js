@@ -48,7 +48,7 @@ class Ws {
   }
 
   async checkConnect() {
-    this.webSocketSend({ eventName: 'ping', msgId: Math.random() });
+    this.webSocketSend({ eventName: 'ping' });
   };
 
   webSocketOnerror(error) {
@@ -106,14 +106,9 @@ class Ws {
     }
   };
 
-  async sendWsData(eventName, params) {
-    const msgId = Math.random();
-    this.webSocketSend({
-      eventName,
-      msgId,
-      params
-    });
-    return await this.getWsData(eventName, msgId);
+  async sendWsData(data, key) {
+    this.webSocketSend(data);
+    return await this.getWsData(key);
   };
 }
 module.exports = Ws;
