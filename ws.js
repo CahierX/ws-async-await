@@ -117,12 +117,3 @@ class ServiceWebSocket {
   };
 }
 module.exports = ServiceWebSocket;
-(async () => {
-  const ws = new ServiceWebSocket('ws://127.0.0.1:52234');
-  await ws.initServiceWebSocket();
-  const macWsStatus = await ws.serviceWebSocketOnopen();
-  if (macWsStatus) {
-    const data = await ws.sendWsData('getTicket', { client: 'mac' });
-    console.log('%c [ data ]-156', 'font-size:13px; background:pink; color:#bf2c9f;', data);
-  }
-})();
